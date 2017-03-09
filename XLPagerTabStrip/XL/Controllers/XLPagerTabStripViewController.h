@@ -25,6 +25,9 @@
 
 #import <UIKit/UITableViewController.h>
 #import <UIKit/UIKit.h>
+#if defined(PRODUCT_CS)
+#import "CSViewController.h"
+#endif
 
 @class XLPagerTabStripViewController;
 
@@ -81,8 +84,11 @@ typedef NS_ENUM(NSUInteger, XLPagerTabStripDirection) {
 @end
 
 
-
+#if defined(PRODUCT_CS)
+@interface XLPagerTabStripViewController : CSViewController <XLPagerTabStripViewControllerDelegate, XLPagerTabStripViewControllerDataSource, UIScrollViewDelegate>
+#else
 @interface XLPagerTabStripViewController : UIViewController <XLPagerTabStripViewControllerDelegate, XLPagerTabStripViewControllerDataSource, UIScrollViewDelegate>
+#endif
 
 @property (readonly) NSArray * pagerTabStripChildViewControllers;
 @property (nonatomic, retain) IBOutlet UIScrollView * containerView;
@@ -101,3 +107,4 @@ typedef NS_ENUM(NSUInteger, XLPagerTabStripDirection) {
 -(void)reloadPagerTabStripView;
 
 @end
+
