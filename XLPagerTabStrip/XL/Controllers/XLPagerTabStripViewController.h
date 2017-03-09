@@ -25,9 +25,6 @@
 
 #import <UIKit/UITableViewController.h>
 #import <UIKit/UIKit.h>
-#if defined(PRODUCT_CS)
-#import "CSViewController.h"
-#endif
 
 @class XLPagerTabStripViewController;
 
@@ -48,7 +45,9 @@
 
 @end
 
-
+#if defined(PRODUCT_CS)
+#import "CSViewController.h"
+#endif
 
 typedef NS_ENUM(NSUInteger, XLPagerTabStripDirection) {
     XLPagerTabStripDirectionLeft,
